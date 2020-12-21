@@ -37,6 +37,7 @@ class InstallData implements InstallDataInterface
         $generalContactStoreEmail = $this->_scopeConfig->getValue('trans_email/ident_general/email',ScopeInterface::SCOPE_STORE);
         $generalContactStoreName = $this->_scopeConfig->getValue('trans_email/ident_general/name',ScopeInterface::SCOPE_STORE);
         $storeInformationTelephone = $this->_scopeConfig->getValue('general/store_information/phone',ScopeInterface::SCOPE_STORE);
+        $country = $this->_scopeConfig->getValue('general/store_information/country_id', ScopeInterface::SCOPE_STORE);
         $storeForSendingSignUpRequest = [
             'nombre' => $this->_scopeConfig->getValue('general/store_information/name',ScopeInterface::SCOPE_STORE),
             'dominio' => $this->_storeManager->getStore()->getBaseUrl(),
@@ -48,7 +49,8 @@ class InstallData implements InstallDataInterface
             'email' => $generalContactStoreEmail,
             'nombre' => $generalContactStoreName,
             'telefono' => $storeInformationTelephone,
-            'store' => $storeForSendingSignUpRequest
+            'country' => $country
+            'store' => $storeForSendingSignUpRequest,
         ];
 
         /* Logging DATA REQUEST in var/log/treggoshippingmethod/info.log */
